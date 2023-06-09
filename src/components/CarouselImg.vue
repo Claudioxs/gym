@@ -49,8 +49,13 @@ export default {
 </script>
 
 <style scoped>
+.carousel-inner{
+  width: 100%;
+  height: 100%;
+}
+
 .c-item {
-  height: 590px;
+  height: 100%;
 }
 
 .c-img {
