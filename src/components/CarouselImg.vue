@@ -19,14 +19,14 @@
         <img src="@/assets/imagen2.jpg" class="d-block w-100 c-img" alt="Slide 2">
         <div class="carousel-caption top-0 mt-4">
           <h3>Fitness Empieza ahora</h3>
-          <p class="transparent-p">En nuestro gimnasio, te ofrecemos un ambiente energético y motivador para que logres tus objetivos. Con una amplia gama de clases grupales, entrenamientos personalizados y equipos de última generación, te brindamos todas las herramientas necesarias para que te pongas en forma y te sientas saludable.</p>
+          <p class="transparent-p">En nuestro gimnasio, te ofrecemos un ambiente energético y motivador para que logres tus objetivos.ersonalizados y equipos de última generación, te brindamos todas las herramientas necesarias para que te pongas en forma y te sientas saludable.</p>
         </div>
       </div>
       <div class="carousel-item c-item">
         <img src="@/assets/imagen3.avif" class="d-block w-100 c-img" alt="Slide 3">
         <div class="carousel-caption top-0 mt-4">
           <h3>Fitness Empieza ahora</h3>
-          <p class="transparent-p">¿Listo para un cambio positivo? Nuestro gimnasio es el lugar perfecto para comenzar tu viaje hacia un estilo de vida activo y equilibrado. Nuestro equipo de entrenadores certificados te guiará en cada paso del camino, brindándote apoyo y motivación para que superes tus límites y te conviertas en la mejor versión de ti mismo.</p>
+          <p class="transparent-p">¿Listo para un cambio positivo? Nuestro gimnasio es el lugar perfecto para comenzar tu viaje hacia un estilo de vida activo y equilibrado.</p>
         </div>
       </div>
     </div>

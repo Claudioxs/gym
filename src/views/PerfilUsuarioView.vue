@@ -1,5 +1,8 @@
 <template>
-    <Perfil/>
+    <div class="container p-4">
+        <Perfil/>
+    </div>
+    
   </template>
   
   <script>

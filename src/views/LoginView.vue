@@ -1,11 +1,11 @@
 <template>
  
- <div class="container">
+ <div class="container p-5">
     <div class="row">
-      <div class="col-lg-8">
+      <div class="col-8">
         <Carousel />
       </div>
-      <div class="col-lg-4">
+      <div class="col-4">
         <Formulario />
       </div>
     </div>

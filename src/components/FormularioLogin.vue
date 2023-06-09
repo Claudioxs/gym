@@ -45,7 +45,11 @@
       </div>
 
       <!-- Submit button -->
-      <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+      <div class="d-flex justify-content-center">
+            <button type="submit" class="btn btn-primary btn-block mb-3">
+              Iniciar Sesion
+            </button>
+          </div>
 
       <!-- Register buttons -->
       <div class="text-center">
