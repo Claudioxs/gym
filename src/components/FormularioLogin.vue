@@ -1,5 +1,5 @@
 <template>
- <!-- Pills navs -->
+ <!--nav-->
 <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
     <li class="nav-item" role="presentation">
       <a class="nav-link active" id="tab-login" data-mdb-toggle="pill" href="#login" role="tab"
@@ -10,7 +10,7 @@
         aria-controls="pills-register" aria-selected="false">Register</a>
     </li>
   </ul>
-<!-- Pills navs -->
+<!--nav-->
 
 
 <div class="tab-content">
@@ -28,7 +28,6 @@
         <label class="form-label" for="loginPassword">Password</label>
       </div>
 
-      <!-- 2 column grid layout -->
       <div class="row mb-4">
         <div class="col-md-6 d-flex justify-content-center">
           <!-- Checkbox -->

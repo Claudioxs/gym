@@ -7,7 +7,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Nombre</h5>
                         <p class="card-text">Edad</p>
-                        <p class="card-text">Correo</p>
+                        <p class="card-text" > {{ alumno.correo }}</p>
                         <p class="card-text">Descripción</p>
                         <a href="#" class="btn btn-primary">Editar Perfil</a>
                     </div>
@@ -54,6 +54,32 @@
 </template>
 
 <script>
+
+export default {
+  data() {
+    return {
+      alumno: {
+        id: 1,
+        nombre: "Jim halpert",
+        edad: 30,
+        peso: 80,
+        correo: "c.saez15@ufromail.cl",
+        altura: "2,0",
+        enfermedades: [],
+        rutinas: {
+          lunes: [
+            { nombre: "Press de banca", series: 4, rep: 10 },
+            { nombre: "Sentadillas", series: 4, rep: 10 },
+          ],
+          martes: [
+            { nombre: "Press de banca", series: 4, rep: 10 },
+            { nombre: "Sentadillas", series: 4, rep: 10 },
+          ],
+        },
+      },
+    };
+  },
+};
 
 </script>
 <style>
