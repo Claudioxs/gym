@@ -1,6 +1,6 @@
 <template>
   
-  <nav class="navbar navbar-expand-lg" id="nav">
+  <nav class="navbar navbar-expand-lg shadow" id="nav">
   <div class="container">
     <!-- Logo o imagen a la izquierda -->
     <a class="navbar-brand" href="#">
@@ -24,7 +24,7 @@
 
     <!-- Inicio de sesión a la derecha -->
     <div class="text-end">
-      <a class="btn btn-primary" href="#">Iniciar sesión</a>
+      <a class="btn" id="btn-login" href="#">Iniciar sesión</a>
     </div>
   </div>
 </nav>
@@ -39,5 +39,9 @@
 #nav {
   background-color: #ffc107;
   height: 100px;
+}
+
+#btn-login{
+  background-color: #ffc107;
 }
 </style>
