@@ -16,8 +16,8 @@ const routes = [
         component: LoginRegistroView
     },
     {
-        path: "/registro",
-        name: "registro",
+        path: "/register",
+        name: "register",
         component: RegistroView
     },
     {

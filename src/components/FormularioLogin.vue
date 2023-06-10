@@ -1,71 +1,183 @@
 <template>
- <!--nav-->
-<ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
-    <li class="nav-item" role="presentation">
-      <a class="nav-link active" id="tab-login" data-mdb-toggle="pill" href="#login" role="tab"
-        aria-controls="pills-login" aria-selected="true">Login</a>
-    </li>
-    <li class="nav-item" role="presentation">
-      <a class="nav-link" id="tab-register" data-mdb-toggle="pill" href="#register" role="tab"
-        aria-controls="pills-register" aria-selected="false">Register</a>
-    </li>
-  </ul>
-<!--nav-->
+  <div class="contenedor-principal d-flex flex-column align-items-center justify-content-center">
 
+    <div class="contenerdo-titulos d-flex flex-column align-items-center">
+      <h3>¡Bienvenido a Fitness!</h3>
+      <p>Estás lista para iniciar tu cambio físico</p>
+    </div>
 
-<div class="tab-content">
-  <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
-    <form>
-      <!-- Email input -->
-      <div class="form-outline mb-4">
-        <input type="email" id="loginName" class="form-control" />
-        <label class="form-label" for="loginName">Email</label>
-      </div>
+    <div class="contenerdor-links">
+      <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
+        <div class="nav-bar"></div> <!-- Barra de navegación activa -->
+        <li class="nav-item active" role="presentation">
+          <router-link to="/login" class="nav-link active" id="tab-login" role="tab" aria-controls="pills-login"
+            aria-selected="false">Login</router-link>
+        </li>
+        <li class="nav-item" role="presentation">
+          <router-link to="/register" class="nav-link" id="tab-register" role="tab" aria-controls="pills-register"
+            aria-selected="false">Register</router-link>
+        </li>
+      </ul>
+    </div>
 
-      <!-- Password input -->
-      <div class="form-outline mb-4">
-        <input type="password" id="loginPassword" class="form-control" />
-        <label class="form-label" for="loginPassword">Password</label>
-      </div>
+    <div class="contenedor-form">
+      <form action="" class="form">
 
-      <div class="row mb-4">
-        <div class="col-md-6 d-flex justify-content-center">
-          <!-- Checkbox -->
-          <div class="form-check mb-3 mb-md-0">
-            <input class="form-check-input" type="checkbox" value="" id="loginCheck" checked />
-            <label class="form-check-label" for="loginCheck"> Mantener Sesion</label>
-          </div>
+        <div class="inputContainer">
+          <input type="text" class="input" placeholder="a" />
+          <label for="" class="label">Email</label>
         </div>
 
-        <div class="col-md-6 d-flex justify-content-center">
-          <!-- Simple link -->
+        <div class="inputContainer">
+          <input type="password" class="input" placeholder="a" />
+          <label for="" class="label">Contraseña</label>
+        </div>
+
+        <div class="inputContainer">
+          <input class="form-check-input" type="checkbox" value="" id="loginCheck" checked />
+          <label class="form-check-label" for="loginCheck">
+            Mantener Sesion</label>
           <a href="#!">Olvidaste tu contraseña?</a>
         </div>
-      </div>
-
-      <!-- Submit button -->
-      <div class="d-flex justify-content-center">
-            <button type="submit" class="btn btn-primary btn-block mb-3">
-              Iniciar Sesion
-            </button>
-          </div>
-
-      <!-- Register buttons -->
-      <div class="text-center">
-        <p>No estas Registrado? <a href="#!">Registro</a></p>
-      </div>
-    </form>
+        <input type="submit" class="submitBtn" value="Iniciar Sesion" />
+      </form>
+    </div>
   </div>
-</div>
-
 </template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
-<style>
+<style scoped>
+.nav-bar {
+  position: absolute;
+  height: 2px;
+  background-color: black;
+  width: 100px; /* Ajusta el ancho de la barra según tus preferencias */
+  bottom: -2px;
+  transition: transform 0.3s ease-in-out;
+  color: #9867c5;
+}
 
+.nav-link {
+  margin: 1px 20px; /* Ajusta los valores de margen */
+}
+
+.nav-item.active .nav-link {
+  color: black;
+}
+
+.nav-item.active .nav-bar {
+  transform: translateX(100px); /* Ajusta la distancia que se mueve la barra */
+}
+
+
+.contenedor-principal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.form {
+  width: 400px;
+  /* Establece el ancho del formulario */
+}
+
+.contenedor-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.form {
+  background-color: white;
+  width: 400px;
+  border-radius: 8px;
+  padding: 20px 24px;
+  box-shadow: 0 10px 25px rgba(92, 99, 105, 0.2);
+}
+
+
+
+.inputContainer {
+  position: relative;
+  height: 45px;
+  width: 90%;
+  margin-bottom: 17px;
+}
+
+.input {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  border: 1px solid #dadce0;
+  border-radius: 7px;
+  font-size: 16px;
+  padding: 0 20px;
+  outline: none;
+  background: none;
+  z-index: 1;
+}
+
+.label {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  padding: 0 4px;
+  background-color: white;
+  color: #dadce0;
+  font-size: 16px;
+  transition: 0.5s;
+  z-index: 0;
+}
+
+::placeholder {
+  color: transparent;
+}
+
+.submitBtn {
+  display: block;
+  width: 100%;
+  margin-top: 30px;
+  padding: 15px 30px;
+  border: none;
+  background-color: purple;
+  color: white;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.submitBtn:hover {
+  background-color: #9867c5;
+  transform: translateY(-2px);
+}
+
+.input:focus+.label {
+  top: -7px;
+  left: 3px;
+  z-index: 10;
+  font-size: 14px;
+  font-weight: 600;
+  color: purple;
+}
+
+.input:not(:placeholder-shown)+.label {
+  top: -7px;
+  left: 3px;
+  z-index: 10;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.input:focus {
+  border: 2px solid purple;
+}
+.nav-link {
+  margin: 1px 20px; /* Ajusta los valores de margen*/
+}
 </style>

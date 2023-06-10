@@ -1,44 +1,52 @@
 <template>
-  <div>
-    <!--nav-->
-    <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
-      <li class="nav-item" role="presentation">
-        <a class="nav-link" id="tab-login" data-mdb-toggle="pill" href="#login" role="tab"
-          aria-controls="pills-login" aria-selected="false">Login</a>
-      </li>
-      <li class="nav-item active" role="presentation">
-        <a class="nav-link" id="tab-register" data-mdb-toggle="pill" href="#register" role="tab"
-          aria-controls="pills-register" aria-selected="true">Register</a>
-      </li>
-    </ul>
+  <div class="contenedor-principal d-flex flex-column align-items-center justify-content-center">
+
+    <div class="contenerdo-titulos d-flex flex-column align-items-center">
+      <h3>¡Bienvenido a Fitness!</h3>
+      <p>Estás lista para iniciar tu cambio físico</p>
+    </div>
+
+    <div class="contenerdor-links">
+      <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
+        <div class="nav-bar"></div> <!-- Barra de navegación activa -->
+        <li class="nav-item" role="presentation">
+          <router-link to="/login" class="nav-link" id="tab-login" role="tab" aria-controls="pills-login"
+            aria-selected="false">Login</router-link>
+        </li>
+        <li class="nav-item active" role="presentation">
+          <router-link to="/register" class="nav-link active" id="tab-register" role="tab" aria-controls="pills-register"
+            aria-selected="true">Register</router-link>
+        </li>
+      </ul>
+    </div>
+
+
 
     <div class="contenedor-form">
       <form action="" class="form">
-          <div class="inputContainer">
-            <input type="text" class="input" placeholder="a" />
-            <label for="" class="label">Nombre</label>
-          </div>
+        <div class="inputContainer">
+          <input type="text" class="input" placeholder="a" />
+          <label for="" class="label">Nombre</label>
+        </div>
 
-          <div class="inputContainer">
-            <input type="text" class="input" placeholder="." />
-            <label for="" class="label">Email</label>
-          </div>
+        <div class="inputContainer">
+          <input type="text" class="input" placeholder="a" />
+          <label for="" class="label">Email</label>
+        </div>
 
-          <div class="inputContainer">
-            <input type="password" class="input" placeholder="." />
-            <label for="" class="label">Contraseña</label>
-          </div>
+        <div class="inputContainer">
+          <input type="password" class="input" placeholder="a" />
+          <label for="" class="label">Contraseña</label>
+        </div>
 
-          <div class="inputContainer">
-            <input type="checkbox" id="terms" />
-            <label for="terms" class="label-checkbox">Acepto los términos y condiciones</label>
-          </div>
+        <div class="inputContainer">
+          <input type="checkbox" id="terms" />
+          <label for="terms" class="label-checkbox">Acepto los <a href="">términos y condiciones</a></label>
+        </div>
 
-          <input type="submit" class="submitBtn" value="Crear Grupo" />
-        </form>
-      </div>
-
-       
+        <input type="submit" class="submitBtn" value="Crear Cuenta" />
+      </form>
+    </div>
   </div>
 </template>
 
@@ -47,6 +55,41 @@ export default {};
 </script>
 
 <style scoped>
+.nav-bar {
+  position: absolute;
+  height: 2px;
+  background-color: black;
+  width: 100px; /* Ajusta el ancho de la barra según tus preferencias */
+  bottom: -2px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.nav-link {
+  margin: 1px 20px; /* Ajusta los valores de margen */
+}
+
+.nav-item.active .nav-link {
+  color: black;
+}
+
+.nav-item.active .nav-bar {
+  transform: translateX(100px); /* Ajusta la distancia que se mueve la barra */
+}
+
+
+.contenedor-principal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.form {
+  width: 400px;
+  /* Establece el ancho del formulario */
+}
+
+
 .contenedor-form {
   display: flex;
   justify-content: center;
@@ -62,20 +105,6 @@ export default {};
   box-shadow: 0 10px 25px rgba(92, 99, 105, 0.2);
 }
 
-.contenedor-form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 10px;
-}
-
-.form {
-  background-color: white;
-  width: 400px;
-  border-radius: 8px;
-  padding: 20px 18px;
-  box-shadow: 0 10px 25px rgba(92, 99, 105, 0.2);
-}
 
 
 .inputContainer {
@@ -112,15 +141,19 @@ export default {};
   z-index: 0;
 }
 
+::placeholder {
+  color: transparent;
+}
+
 .submitBtn {
   display: block;
-  width: 100%; 
+  width: 100%;
   margin-top: 30px;
   padding: 15px 30px;
   border: none;
   background-color: purple;
   color: white;
-  border-radius: 6px;
+  border-radius: 3px;
   cursor: pointer;
   font-size: 16px;
 }
@@ -129,7 +162,8 @@ export default {};
   background-color: #9867c5;
   transform: translateY(-2px);
 }
-.input:focus + .label {
+
+.input:focus+.label {
   top: -7px;
   left: 3px;
   z-index: 10;
@@ -138,7 +172,7 @@ export default {};
   color: purple;
 }
 
-.input:not(:placeholder-shown) + .label {
+.input:not(:placeholder-shown)+.label {
   top: -7px;
   left: 3px;
   z-index: 10;
@@ -149,11 +183,7 @@ export default {};
 .input:focus {
   border: 2px solid purple;
 }
-
-
-
-
-
-
-
+.nav-link {
+  margin: 1px 20px; /* Ajusta los valores de margen*/
+}
 </style>
