@@ -36,7 +36,7 @@
         <div class="inputContainer">
           <input class="form-check-input" type="checkbox" value="" id="loginCheck" checked />
           <label class="form-check-label" for="loginCheck">Mantener Sesion</label>
-          <a href="#!">Olvidaste tu contraseña?</a>
+          
         </div>
         <input type="submit" class="submitBtn" value="Iniciar Sesion" />
       </form>
@@ -137,7 +137,14 @@ export default {};
   transition: 0.5s;
   z-index: 0;
 }
-
+.form-check-label{
+  margin-top: 10px; 
+  margin-left: 8px;
+}
+.form-check-input{
+  margin-left: 8px;
+  margin-top: 15px;
+}
 ::placeholder {
   color: transparent;
 }
