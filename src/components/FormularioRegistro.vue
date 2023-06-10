@@ -61,9 +61,7 @@ export default {};
 .nav-bar {
   position: absolute;
   height: 2px;
-  background-color: black;
   width: 100%;
-  /* Ancho de la barra según tus preferencias */
   bottom: -2px;
   transition: transform 0.3s ease-in-out;
 }
@@ -91,7 +89,6 @@ export default {};
   border-radius: 8px;
   padding: 20px 24px;
   box-shadow: 0 10px 25px rgba(92, 99, 105, 0.2);
-  /* Sombra */
 }
 
 .contenedor-form {
@@ -99,7 +96,6 @@ export default {};
   justify-content: center;
   align-items: center;
   width: 100%;
-  /* Ancho del contenedor del formulario */
   margin-top: 20px;
 }
 
