@@ -35,8 +35,7 @@
 
         <div class="inputContainer">
           <input class="form-check-input" type="checkbox" value="" id="loginCheck" checked />
-          <label class="form-check-label" for="loginCheck">
-            Mantener Sesion</label>
+          <label class="form-check-label" for="loginCheck">Mantener Sesion</label>
           <a href="#!">Olvidaste tu contraseña?</a>
         </div>
         <input type="submit" class="submitBtn" value="Iniciar Sesion" />
@@ -50,11 +49,30 @@ export default {};
 </script>
 
 <style scoped>
+
+/*CONTENEDORES PRINCIPALES*/ 
+.contenedor-principal {
+  width: 400px;
+  border: 1px solid purple; /* Contorno fino */
+  border-radius: 8px;
+  padding: 20px 24px;
+  box-shadow: 0 10px 25px rgba(92, 99, 105, 0.2); /* Sombra */
+}
+
+.contenedor-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%; /* Ancho del contenedor del formulario */
+  margin-top: 20px;
+}
+
+/*NAV-BAR*/
 .nav-bar {
   position: absolute;
   height: 2px;
   background-color: black;
-  width: 100px; /* Ajusta el ancho de la barra según tus preferencias */
+  width: 100px; 
   bottom: -2px;
   transition: transform 0.3s ease-in-out;
   color: #9867c5;
@@ -71,35 +89,20 @@ export default {};
 .nav-item.active .nav-bar {
   transform: translateX(100px); /* Ajusta la distancia que se mueve la barra */
 }
-
-
-.contenedor-principal {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.nav-link {
+  margin: 1px 20px; /* Ajusta los valores de margen*/
 }
+
+/*FORMULARIO*/
 .form {
   width: 400px;
-  /* Establece el ancho del formulario */
-}
-
-.contenedor-form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 10px;
 }
 
 .form {
   background-color: white;
-  width: 400px;
   border-radius: 8px;
-  padding: 20px 24px;
-  box-shadow: 0 10px 25px rgba(92, 99, 105, 0.2);
+  padding:5px 1px;
 }
-
-
 
 .inputContainer {
   position: relative;
@@ -142,12 +145,12 @@ export default {};
 .submitBtn {
   display: block;
   width: 100%;
-  margin-top: 30px;
-  padding: 15px 30px;
+  margin-top: 10px;
+  padding: 15px 10px;
   border: none;
   background-color: purple;
   color: white;
-  border-radius: 3px;
+  border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
 }
@@ -177,7 +180,5 @@ export default {};
 .input:focus {
   border: 2px solid purple;
 }
-.nav-link {
-  margin: 1px 20px; /* Ajusta los valores de margen*/
-}
+
 </style>

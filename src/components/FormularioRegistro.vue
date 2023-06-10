@@ -55,6 +55,9 @@ export default {};
 </script>
 
 <style scoped>
+
+
+/**NAV-BAR */
 .nav-bar {
   position: absolute;
   height: 2px;
@@ -76,33 +79,36 @@ export default {};
   transform: translateX(100px); /* Ajusta la distancia que se mueve la barra */
 }
 
+.nav-link {
+  margin: 1px 20px; /* Ajusta los valores de margen*/
+}
 
+/*CONTENEDORES PRINCIPALES*/ 
 .contenedor-principal {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.form {
   width: 400px;
-  /* Establece el ancho del formulario */
+  border: 1px solid purple; /* Contorno fino */
+  border-radius: 8px;
+  padding: 20px 24px;
+  box-shadow: 0 10px 25px rgba(92, 99, 105, 0.2); /* Sombra */
 }
-
 
 .contenedor-form {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 10px;
+  width: 100%; /* Ancho del contenedor del formulario */
+  margin-top: 20px;
+}
+
+/*FORMULARIO*/
+.form {
+  width: 400px;
 }
 
 .form {
   background-color: white;
-  width: 400px;
   border-radius: 8px;
   padding: 20px 18px;
-  box-shadow: 0 10px 25px rgba(92, 99, 105, 0.2);
 }
 
 
@@ -148,12 +154,12 @@ export default {};
 .submitBtn {
   display: block;
   width: 100%;
-  margin-top: 30px;
-  padding: 15px 30px;
+  margin-top: 10px;
+  padding: 15px 10px;
   border: none;
   background-color: purple;
   color: white;
-  border-radius: 3px;
+  border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
 }
@@ -183,7 +189,5 @@ export default {};
 .input:focus {
   border: 2px solid purple;
 }
-.nav-link {
-  margin: 1px 20px; /* Ajusta los valores de margen*/
-}
+
 </style>
