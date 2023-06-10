@@ -1,53 +1,55 @@
 <template>
-  <div class="contenedor-principal d-flex flex-column align-items-center justify-content-center">
-
-    <div class="contenerdo-titulos d-flex flex-column align-items-center">
-      <h3>¡Bienvenido a Fitness!</h3>
-      <p>Estás lista para iniciar tu cambio físico</p>
-    </div>
-
-    <div class="contenerdor-links">
-      <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
-        <div class="nav-bar"></div> <!-- Barra de navegación activa -->
-        <li class="nav-item" role="presentation">
-          <router-link to="/login" class="nav-link" id="tab-login" role="tab" aria-controls="pills-login"
-            aria-selected="false">Login</router-link>
-        </li>
-        <li class="nav-item active" role="presentation">
-          <router-link to="/register" class="nav-link active" id="tab-register" role="tab" aria-controls="pills-register"
-            aria-selected="true">Register</router-link>
-        </li>
-      </ul>
-    </div>
+  
+        <div class="contenedor-principal d-flex flex-column align-items-center justify-content-center">
 
 
+          <div class="contenerdo-titulos d-flex flex-column align-items-center">
+            <h3>¡Bienvenido a Fitness!</h3>
+            <p>Estás lista para iniciar tu cambio físico</p>
+          </div>
 
-    <div class="contenedor-form">
-      <form action="" class="form">
-        <div class="inputContainer">
-          <input type="text" class="input" placeholder="a" />
-          <label for="" class="label">Nombre</label>
+          <div class="contenerdor-links">
+            <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
+              <div class="nav-bar"></div> <!-- Barra de navegación activa -->
+              <li class="nav-item" role="presentation">
+                <router-link to="/login" class="nav-link" id="tab-login" role="tab" aria-controls="pills-login"
+                  aria-selected="false">Login</router-link>
+              </li>
+              <li class="nav-item active" role="presentation">
+                <router-link to="/register" class="nav-link active" id="tab-register" role="tab"
+                  aria-controls="pills-register" aria-selected="true">Register</router-link>
+              </li>
+            </ul>
+          </div>
+
+
+
+          <div class="contenedor-form">
+            <form action="" class="form">
+              <div class="inputContainer">
+                <input type="text" class="input" placeholder="a" />
+                <label for="" class="label">Nombre</label>
+              </div>
+
+              <div class="inputContainer">
+                <input type="text" class="input" placeholder="a" />
+                <label for="" class="label">Email</label>
+              </div>
+
+              <div class="inputContainer">
+                <input type="password" class="input" placeholder="a" />
+                <label for="" class="label">Contraseña</label>
+              </div>
+
+              <div class="inputContainer">
+                <input type="checkbox" id="terms" />
+                <label for="terms" class="label-checkbox">Acepto los <a href="">términos y condiciones</a></label>
+              </div>
+
+              <input type="submit" class="submitBtn" value="Crear Cuenta" />
+            </form>
+          </div>
         </div>
-
-        <div class="inputContainer">
-          <input type="text" class="input" placeholder="a" />
-          <label for="" class="label">Email</label>
-        </div>
-
-        <div class="inputContainer">
-          <input type="password" class="input" placeholder="a" />
-          <label for="" class="label">Contraseña</label>
-        </div>
-
-        <div class="inputContainer">
-          <input type="checkbox" id="terms" />
-          <label for="terms" class="label-checkbox">Acepto los <a href="">términos y condiciones</a></label>
-        </div>
-
-        <input type="submit" class="submitBtn" value="Crear Cuenta" />
-      </form>
-    </div>
-  </div>
 </template>
 
 <script>
@@ -55,20 +57,19 @@ export default {};
 </script>
 
 <style scoped>
-
-
 /**NAV-BAR */
 .nav-bar {
   position: absolute;
   height: 2px;
   background-color: black;
-  width: 100px; /* Ancho de la barra según tus preferencias */
+  width: 100%;
+  /* Ancho de la barra según tus preferencias */
   bottom: -2px;
   transition: transform 0.3s ease-in-out;
 }
 
 .nav-link {
-  margin: 1px 20px; 
+  margin: 1px 20px;
 }
 
 .nav-item.active .nav-link {
@@ -80,29 +81,31 @@ export default {};
 }
 
 .nav-link {
-  margin: 1px 20px; 
+  margin: 1px 20px;
 }
 
-/*CONTENEDORES PRINCIPALES*/ 
+/*CONTENEDORES PRINCIPALES*/
 .contenedor-principal {
   width: 400px;
   border: 1px solid purple;
   border-radius: 8px;
   padding: 20px 24px;
-  box-shadow: 0 10px 25px rgba(92, 99, 105, 0.2); /* Sombra */
+  box-shadow: 0 10px 25px rgba(92, 99, 105, 0.2);
+  /* Sombra */
 }
 
 .contenedor-form {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%; /* Ancho del contenedor del formulario */
+  width: 100%;
+  /* Ancho del contenedor del formulario */
   margin-top: 20px;
 }
 
 /*FORMULARIO*/
 .form {
-  width: 400px;
+  width: 100%;
 }
 
 .form {
@@ -150,9 +153,10 @@ export default {};
 ::placeholder {
   color: transparent;
 }
+
 .label-checkbox {
-  margin-top: 10px; 
-  margin-left: 8px ;
+  margin-top: 10px;
+  margin-left: 8px;
 }
 
 .submitBtn {
@@ -193,5 +197,4 @@ export default {};
 .input:focus {
   border: 2px solid purple;
 }
-
 </style>

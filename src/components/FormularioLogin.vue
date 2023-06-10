@@ -8,7 +8,7 @@
 
     <div class="contenerdor-links">
       <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
-        <div class="nav-bar"></div> <!-- Barra de navegación activa -->
+        <div class="nav-bar"></div>
         <li class="nav-item active" role="presentation">
           <router-link to="/login" class="nav-link active" id="tab-login" role="tab" aria-controls="pills-login"
             aria-selected="false">Login</router-link>
@@ -52,8 +52,8 @@ export default {};
 
 /*CONTENEDORES PRINCIPALES*/ 
 .contenedor-principal {
-  width: 400px;
-  border: 1px solid purple; /* Contorno fino */
+  width: 100%;
+  border: 1px solid black; /* Contorno fino */
   border-radius: 8px;
   padding: 20px 24px;
   box-shadow: 0 10px 25px rgba(92, 99, 105, 0.2); /* Sombra */
@@ -72,7 +72,7 @@ export default {};
   position: absolute;
   height: 2px;
   background-color: black;
-  width: 100px; 
+  width: 100%; 
   bottom: -2px;
   transition: transform 0.3s ease-in-out;
   color: #9867c5;
@@ -95,7 +95,7 @@ export default {};
 
 /*FORMULARIO*/
 .form {
-  width: 400px;
+  width: 100%;
 }
 
 .form {
