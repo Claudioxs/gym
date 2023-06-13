@@ -89,7 +89,7 @@ export default {
   width: 100%; 
   bottom: -2px;
   transition: transform 0.3s ease-in-out;
-  color: #9867c5;
+  color: #b8b647;
 }
 
 .nav-link {
@@ -169,15 +169,15 @@ export default {
   margin-top: 10px;
   padding: 15px 10px;
   border: none;
-  background-color: purple;
-  color: white;
+  background-color: rgb(212, 212, 65); /**color boton cambiar */
+  color: black;
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
 }
 
 .submitBtn:hover {
-  background-color: #9867c5;
+  background-color: #c5c467;
   transform: translateY(-2px);
 }
 
@@ -187,7 +187,7 @@ export default {
   z-index: 10;
   font-size: 14px;
   font-weight: 600;
-  color: purple;
+  color: yellow;
 }
 
 .input:not(:placeholder-shown)+.label {
