@@ -57,6 +57,7 @@ export default {
   data() {
     return {
       usuario: {
+        //id: 1,
         nombre: "Claudio",
         correo: "c.saez15@ufromail.cl",
         password: "12345678",
