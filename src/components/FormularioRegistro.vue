@@ -8,14 +8,14 @@
     </div>
 
     <div class="contenerdor-links">
-      <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
-        <div class="nav-bar"></div> <!-- Barra de navegación activa -->
-        <li class="nav-item" role="presentation">
-          <router-link to="/login" class="nav-link" id="tab-login" role="tab" aria-controls="pills-login"
+      <ul class="nav">
+        <div class="nav-bar"></div>
+        <li class="nav-item active" role="presentation">
+          <router-link to="/login" class="nav-link " id="tab-login"  aria-controls="pills-login"
             aria-selected="false">Login</router-link>
         </li>
-        <li class="nav-item active" role="presentation">
-          <router-link to="/register" class="nav-link active" id="tab-register" role="tab" aria-controls="pills-register"
+        <li class="nav-item " role="presentation">
+          <router-link to="/register" class="nav-link active" id="tab-register"  aria-controls="pills-register"
             aria-selected="true">Register</router-link>
         </li>
       </ul>

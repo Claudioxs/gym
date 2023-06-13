@@ -7,14 +7,14 @@
     </div>
 
     <div class="contenerdor-links">
-      <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
+      <ul class="nav">
         <div class="nav-bar"></div>
-        <li class="nav-item active" role="presentation">
-          <router-link to="/login" class="nav-link active" id="tab-login" role="tab" aria-controls="pills-login"
-            aria-selected="false">Login</router-link>
+        <li class="nav-item " role="presentation">
+          <router-link to="/login" class="nav-link active" id="tab-login"  aria-controls="pills-login"
+            aria-selected="true">Login</router-link>
         </li>
-        <li class="nav-item" role="presentation">
-          <router-link to="/register" class="nav-link" id="tab-register" role="tab" aria-controls="pills-register"
+        <li class="nav-item active" role="presentation">
+          <router-link to="/register" class="nav-link" id="tab-register"  aria-controls="pills-register"
             aria-selected="false">Register</router-link>
         </li>
       </ul>
