@@ -21,17 +21,17 @@
     </div>
 
     <div class="contenedor-form">
-      <form action="" class="form">
+      <form @submit.prevent="submitForm" action="" class="form">
 
         <div class="inputContainer">
-          <input type="text" class="input" placeholder="a" />
-          <label for="" class="label">Email</label>
-        </div>
+        <input v-model="usuario.correo" type="text" class="input" placeholder="a" />
+        <label for="" class="label">Email</label>
+      </div>
 
-        <div class="inputContainer">
-          <input type="password" class="input" placeholder="a" />
-          <label for="" class="label">Contraseña</label>
-        </div>
+      <div class="inputContainer">
+        <input v-model="usuario.password" type="password" class="input" placeholder="a" />
+        <label for="" class="label">Contraseña</label>
+      </div>
 
         <div class="inputContainer">
           <input class="form-check-input" type="checkbox" value="" id="loginCheck" checked />
@@ -45,7 +45,22 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      usuario: {
+        correo:"c.saez15@ufromail.cl",
+        password:"12345678",
+      },
+    };
+  },
+  methods: {
+    submitForm() {
+      //  lógica de autenticación de los datos del usuario
+      console.log(this.usuario);
+    },
+  },
+};
 </script>
 
 <style scoped>

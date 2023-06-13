@@ -5,10 +5,10 @@
                 <div class="card shadow-sm animate__animated animate__fadeIn">
                     <img src="#" class="user-image" alt="Imagen Usuario">
                     <div class="card-body">
-                        <h5 class="card-title">Nombre</h5>
-                        <p class="card-text">Edad</p>
-                        <p class="card-text" > {{ alumno.correo }}</p>
-                        <p class="card-text">Descripción</p>
+                        <h5 class="card-title">{{ alumno.nombre }}</h5>
+                        <p class="card-text">{{ alumno.edad }}</p>
+                        <p class="card-text"> {{ alumno.correo }}</p>
+                        <p class="card-text">{{ alumno.descripcion }}</p>
                         <a href="#" class="btn btn-primary">Editar Perfil</a>
                     </div>
                 </div>
@@ -31,10 +31,14 @@
                             <div class="card-body">
                                 <h5 class="card-title">Rutinas Inscritas</h5>
                                 <ul>
-                                    <li>
-                                        Descripción de la Rutina
+                                    <li v-for="(rutina, dia) in alumno.rutinas" :key="dia">
+                                        <strong>{{ capitalizeFirstLetter(dia) }}:</strong>
+                                        <ul>
+                                            <li v-for="ejercicio in rutina" :key="ejercicio.nombre">
+                                                {{ ejercicio.nombre }} - {{ ejercicio.series }} series, {{ ejercicio.rep }} repeticiones
+                                            </li>
+                                        </ul>
                                     </li>
-                                    <li></li>
                                 </ul>
                             </div>
                         </div>
@@ -45,7 +49,7 @@
                 <div class="bg-gray" style="height: 400px; width: 100%;">
                     <h5 class="titulo">Estadisticas Semanales:</h5>
                     <div class="container">
-                        
+
                     </div>
                 </div>
             </div>
@@ -56,29 +60,37 @@
 <script>
 
 export default {
-  data() {
-    return {
-      alumno: {
-        id: 1,
-        nombre: "Jim halpert",
-        edad: 30,
-        peso: 80,
-        correo: "c.saez15@ufromail.cl",
-        altura: "2,0",
-        enfermedades: [],
-        rutinas: {
-          lunes: [
-            { nombre: "Press de banca", series: 4, rep: 10 },
-            { nombre: "Sentadillas", series: 4, rep: 10 },
-          ],
-          martes: [
-            { nombre: "Press de banca", series: 4, rep: 10 },
-            { nombre: "Sentadillas", series: 4, rep: 10 },
-          ],
+    data() {
+        return {
+            alumno: {
+                id: 1,
+                nombre: "Jim halpert",
+                edad: 30,
+                //peso: 80,
+                correo: "c.saez15@ufromail.cl",
+                //altura: "2,0",
+                //enfermedades: [],
+                descripcion: "Me gusta mucho el deporte y jugar a la pelota",
+                rutinas: {
+                    lunes: [
+                        { nombre: "Press de banca", series: 4, rep: 10 },
+                        { nombre: "Sentadillas", series: 4, rep: 10 },
+                    ],
+                    martes: [
+                        { nombre: "Press de banca", series: 4, rep: 10 },
+                        { nombre: "Sentadillas", series: 4, rep: 10 },
+                    ],
+                },
+            },
+        };
+    },
+
+    methods: {
+        capitalizeFirstLetter(str) {
+            return str.charAt(0).toUpperCase() + str.slice(1);
         },
-      },
-    };
-  },
+    },
+
 };
 
 </script>

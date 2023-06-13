@@ -1,59 +1,75 @@
 <template>
-  
-        <div class="contenedor-principal d-flex flex-column align-items-center justify-content-center">
+  <div class="contenedor-principal d-flex flex-column align-items-center justify-content-center">
 
 
-          <div class="contenerdo-titulos d-flex flex-column align-items-center">
-            <h3>¡Bienvenido a Fitness!</h3>
-            <p>Estás lista para iniciar tu cambio físico</p>
-          </div>
+    <div class="contenerdo-titulos d-flex flex-column align-items-center">
+      <h3>¡Bienvenido a Fitness!</h3>
+      <p>Estás lista para iniciar tu cambio físico</p>
+    </div>
 
-          <div class="contenerdor-links">
-            <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
-              <div class="nav-bar"></div> <!-- Barra de navegación activa -->
-              <li class="nav-item" role="presentation">
-                <router-link to="/login" class="nav-link" id="tab-login" role="tab" aria-controls="pills-login"
-                  aria-selected="false">Login</router-link>
-              </li>
-              <li class="nav-item active" role="presentation">
-                <router-link to="/register" class="nav-link active" id="tab-register" role="tab"
-                  aria-controls="pills-register" aria-selected="true">Register</router-link>
-              </li>
-            </ul>
-          </div>
+    <div class="contenerdor-links">
+      <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
+        <div class="nav-bar"></div> <!-- Barra de navegación activa -->
+        <li class="nav-item" role="presentation">
+          <router-link to="/login" class="nav-link" id="tab-login" role="tab" aria-controls="pills-login"
+            aria-selected="false">Login</router-link>
+        </li>
+        <li class="nav-item active" role="presentation">
+          <router-link to="/register" class="nav-link active" id="tab-register" role="tab" aria-controls="pills-register"
+            aria-selected="true">Register</router-link>
+        </li>
+      </ul>
+    </div>
 
 
 
-          <div class="contenedor-form">
-            <form action="" class="form">
-              <div class="inputContainer">
-                <input type="text" class="input" placeholder="a" />
-                <label for="" class="label">Nombre</label>
-              </div>
-
-              <div class="inputContainer">
-                <input type="text" class="input" placeholder="a" />
-                <label for="" class="label">Email</label>
-              </div>
-
-              <div class="inputContainer">
-                <input type="password" class="input" placeholder="a" />
-                <label for="" class="label">Contraseña</label>
-              </div>
-
-              <div class="inputContainer">
-                <input type="checkbox" id="terms" />
-                <label for="terms" class="label-checkbox">Acepto los <a href="">términos y condiciones</a></label>
-              </div>
-
-              <input type="submit" class="submitBtn" value="Crear Cuenta" />
-            </form>
-          </div>
+    <div class="contenedor-form">
+      <form @submit.prevent="submitForm" class="form">
+        <div class="inputContainer">
+          <input v-model="usuario.nombre" type="text" class="input" placeholder="a" />
+          <label for="" class="label">Nombre</label>
         </div>
+
+        <div class="inputContainer">
+          <input v-model="usuario.correo" type="text" class="input" placeholder="a" />
+          <label for="" class="label">Email</label>
+        </div>
+
+        <div class="inputContainer">
+          <input v-model="usuario.password" type="password" class="input" placeholder="a" />
+          <label for="" class="label">Contraseña</label>
+        </div>
+
+        <div class="inputContainer">
+          <input type="checkbox" id="terms" />
+          <label for="terms" class="label-checkbox">Acepto los <a href="">términos y condiciones</a></label>
+        </div>
+
+        <input type="submit" class="submitBtn" value="Crear Cuenta" />
+      </form>
+    </div>
+  </div>
 </template>
 
 <script>
-export default {};
+
+export default {
+  data() {
+    return {
+      usuario: {
+        nombre: "Claudio",
+        correo: "c.saez15@ufromail.cl",
+        password: "12345678",
+      },
+    };
+  },
+  methods: {
+    submitForm() {
+      //  lógica de autenticación de los datos del usuario
+      console.log(this.usuario);
+    },
+  },
+};
 </script>
 
 <style scoped>
