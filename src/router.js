@@ -16,7 +16,7 @@ const routes = [
         component: EntrenadorView
     },
     {
-        path: "/entrenador/:id/alumno",
+        path: "/entrenador/alumno",
         name: "alumno",
         component: AlumnoView
     },
