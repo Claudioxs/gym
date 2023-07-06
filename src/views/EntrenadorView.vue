@@ -24,6 +24,7 @@
         <div class="col border">
           <BuscadorComp></BuscadorComp>
         </div>
+        <h1>{{ users }}</h1>
       </div>
     </div>
   </div>
@@ -31,93 +32,29 @@
 
 <script>
 import BuscadorComp from '@/components/BuscadorComp.vue';
+import { ref } from 'vue';
+import { getUsers } from '@/services/admin.services';
+
 export default {
   components:{
     BuscadorComp
   },
-  data() {
-    return {
-      entrenador: {
-        nombre: "Dwite Schure",
-        alumnos: {
-          entrenador:{
-            nombre: "Dwite Schrute"
-          },
-          usuarios: [
-            {
-              nombre: "Kevin",
-              id: 1,
-              edad: 40,
-              estatura: 1.70,
-              foto: 'https://img.nbc.com/sites/nbcunbc/files/metaverse_assets/1/0/6/3/3/6/kevin-500x500.jpg',
-              ejercicios: {
-                lunes: [
-                  { ejercicio: "Ejercicio A", series: 3, repeticiones: 10 },
-                  { ejercicio: "Ejercicio B", series: 2, repeticiones: 12 },
-                ],
-                martes: [
-                  { ejercicio: "Ejercicio D", series: 3, repeticiones: 10 },
-                  { ejercicio: "Ejercicio E", series: 2, repeticiones: 12 },
-                  { ejercicio: "Ejercicio F", series: 4, repeticiones: 8 },
-                ],
-                miércoles: [
-                  { ejercicio: "Ejercicio G", series: 3, repeticiones: 10 },
-                  { ejercicio: "Ejercicio H", series: 2, repeticiones: 12 },
-                  { ejercicio: "Ejercicio I", series: 4, repeticiones: 8 },
-                ],
-                jueves: [
-                  { ejercicio: "Ejercicio J", series: 3, repeticiones: 10 },
-                  { ejercicio: "Ejercicio K", series: 2, repeticiones: 12 },
-                  { ejercicio: "Ejercicio L", series: 4, repeticiones: 8 },
-                ],
-                viernes: [
-                  { ejercicio: "Ejercicio M", series: 3, repeticiones: 10 },
-                  { ejercicio: "Ejercicio N", series: 2, repeticiones: 12 },
-                  { ejercicio: "Ejercicio O", series: 4, repeticiones: 8 },
-                ],
-                sábado: [
-                  { ejercicio: "Ejercicio P", series: 3, repeticiones: 10 },
-                  { ejercicio: "Ejercicio Q", series: 2, repeticiones: 12 },
-                  { ejercicio: "Ejercicio R", series: 4, repeticiones: 8 },
-                ],
-                domingo: [
-                  { ejercicio: "Ejercicio S", series: 3, repeticiones: 10 },
-                  { ejercicio: "Ejercicio T", series: 2, repeticiones: 12 },
-                  { ejercicio: "Ejercicio U", series: 4, repeticiones: 8 },
-                ],
-              },
-              historial: [
-                {
-                  fecha: "2023-06-01",
-                  ejercicios: [
-                    { ejercicio: "Ejercicio A", series: 3, repeticiones: 10 },
-                    { ejercicio: "Ejercicio B", series: 2, repeticiones: 12 },
-                  ],
-                },
-                {
-                  fecha: "2023-06-03",
-                  ejercicios: [
-                    { ejercicio: "Ejercicio D", series: 3, repeticiones: 10 },
-                    { ejercicio: "Ejercicio E", series: 2, repeticiones: 12 },
-                    { ejercicio: "Ejercicio F", series: 4, repeticiones: 8 },
-                  ],
-                },
-                {
-                  fecha: "2023-06-05",
-                  ejercicios: [
-                    { ejercicio: "Ejercicio J", series: 3, repeticiones: 10 },
-                    { ejercicio: "Ejercicio K", series: 2, repeticiones: 12 },
-                    { ejercicio: "Ejercicio L", series: 4, repeticiones: 8 },
-                  ],
-                },
-              ],
-            },
-            
-          ],
-        },
-      },
-    };
+  mounted(){
+    setTimeout(()=>{
+        this.loadUsers()
+    }, 100)
   },
+  setup(){
+    const users = ref(null)
+    return{
+      users,
+      async loadUsers(){
+        const response = await getUsers();
+        this.users = response;
+        alert(response)
+      }
+    }
+  }
 };
 </script>
 
