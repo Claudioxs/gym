@@ -21,15 +21,17 @@
     </div>
 
     <div class="contenedor-form">
-      <form @submit.prevent="submitForm" action="" class="form">
+
+
+      <form @submit.prevent="login" class="form">
 
         <div class="inputContainer">
-        <input v-model="usuario.correo" type="text" class="input" placeholder="a" />
-        <label for="" class="label">Email</label>
-      </div>
+          <input v-model="email" type="text" class="input" placeholder="a" />
+          <label class="label">Email</label>
+        </div>
 
       <div class="inputContainer">
-        <input v-model="usuario.password" type="password" class="input" placeholder="a" />
+        <input v-model="password" type="password" class="input" placeholder="a" />
         <label for="" class="label">Contraseña</label>
       </div>
 
@@ -40,26 +42,48 @@
         </div>
         <input type="submit" class="submitBtn" value="Iniciar Sesion" />
       </form>
+
+
     </div>
   </div>
 </template>
 
 <script>
+import { login } from "@/services/auth.services";
+import {setToken} from "@/services/helpers";
+
 export default {
   data() {
     return {
-      usuario: {
-        //id : 1,
-        correo:"c.saez15@ufromail.cl",
-        password:"12345678",
-      },
+      email: "",
+      password: "",
     };
   },
   methods: {
-    submitForm() {
-      //  lógica de autenticación de los datos del usuario
-      console.log(this.usuario);
+
+    async login() {
+
+
+      try {
+        const response = await login({email: this.email, password: this.password})
+        
+        const rol = JSON.stringify(response.user.rol);
+        const token = JSON.stringify(response.token).slice(1, -1);
+        
+        setToken(token);
+        
+        
+        if(rol.includes("user")){
+          await this.$router.push('/perfil');
+        }else{
+          await this.$router.push('/entrenador');
+        }
+        
+      } catch (error) {
+        window.alert(error);
+      }
     },
+    
   },
 };
 </script>

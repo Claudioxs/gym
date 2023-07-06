@@ -57,7 +57,7 @@
 import CarruselComp from '@/components/CarruselComp.vue';
 export default {
 
-  
+
   components: {
     CarruselComp
   },
