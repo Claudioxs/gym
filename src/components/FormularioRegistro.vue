@@ -58,9 +58,9 @@ export default {
     return {
       usuario: {
         //id: 1,
-        nombre: "Claudio",
-        correo: "c.saez15@ufromail.cl",
-        password: "12345678",
+        nombre: "",
+        correo: "",
+        password: "",
       },
     };
   },

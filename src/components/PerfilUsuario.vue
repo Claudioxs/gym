@@ -1,14 +1,14 @@
 <template>
-   <div class="container">
+  <div class="container">
     <div class="row">
+
+
       <div class="col-md-4">
         <div class="card shadow-sm animate__animated animate__fadeIn">
-          <div class="user-image"></div>
+          <div class="user-image"><img src="@/assets/imagenperfil.jpeg" alt=""></div>
           <div class="card-body">
             <h5 class="card-title">{{ alumno.nombre }}</h5>
-            <p class="card-text">{{ alumno.edad }}</p>
             <p class="card-text">{{ alumno.correo }}</p>
-            <p class="card-text">{{ alumno.descripcion }}</p>
             <a href="#" class="btn btn-primary">Editar Perfil</a>
           </div>
         </div>
@@ -18,11 +18,7 @@
         <div class="row">
           <div class="col-md-12">
             <div class="card shadow-sm animate__animated animate__fadeIn">
-              <div class="card-body">
-                <h5 class="card-title">Objetivos y Notificaciones</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo reprehenderit eos</p>
-                <a href="#" class="btn btn-primary">Editar</a>
-              </div>
+              <ObjetivosVue/>
             </div>
           </div>
           <div class="col-md-12 mt-3">
@@ -44,6 +40,11 @@
           </div>
         </div>
       </div>
+
+      <div>
+        <router-link to="/agregarRutinaUser"><button class="btn btn-primary">Agregar rutina </button></router-link>
+      </div>
+
       <div class="col-12 mt-3">
         <div class="bg-gray" style="height: 400px; width: 100%;">
           <h5 class="titulo">Estadisticas Semanales:</h5>
@@ -55,43 +56,54 @@
 </template>
 
 <script>
-
+import ObjetivosVue from './ObjetivosComponent.vue'
 export default {
-    data() {
-        return {
-            alumno: {
-                id: 1,
-                nombre: "Jim halpert",
-                edad: 30,
-                //peso: 80,
-                correo: "c.saez15@ufromail.cl",
-                //altura: "2,0",
-                //enfermedades: [],
-                descripcion: "Me gusta mucho el deporte y jugar a la pelota",
-                rutinas: {
-                    lunes: [
-                        { nombre: "Press de banca", series: 4, rep: 10 },
-                        { nombre: "Sentadillas", series: 4, rep: 10 },
-                    ],
-                    martes: [
-                        { nombre: "Press de banca", series: 4, rep: 10 },
-                        { nombre: "Sentadillas", series: 4, rep: 10 },
-                    ],
-                },
-            },
-        };
-    },
-
-    methods: {
-        capitalizeFirstLetter(str) {
-            return str.charAt(0).toUpperCase() + str.slice(1);
+  components:{
+    ObjetivosVue
+  },
+  data() {
+    return {
+      alumno: {
+        id: 1,
+        nombre: "Jim halpert",
+        //edad: 30,
+        //peso: 80,
+        correo: "c.saez15@ufromail.cl",
+        //altura: "2,0",
+        //enfermedades: [],
+        //descripcion: "Me gusta mucho el deporte y jugar a la pelota",
+        rutinas: {
+          lunes: [
+            { nombre: "Press de banca", series: 4, rep: 10 },
+            { nombre: "Sentadillas", series: 4, rep: 10 },
+          ],
+          martes: [
+            { nombre: "Press de banca", series: 4, rep: 10 },
+            { nombre: "Sentadillas", series: 4, rep: 10 },
+          ],
         },
+      },
+    };
+  },
+
+  methods: {
+    capitalizeFirstLetter(str) {
+      return str.charAt(0).toUpperCase() + str.slice(1);
     },
+  },
 
 };
 
 </script>
-<style>
+<style scoped>
+img{
+  width: 100%;
+  height: 200px;
+}
+.btn:hover {
+  box-shadow: 0 12px 16px 0 rgba(49, 49, 49, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
 .user-image {
   background-color: #f2f2f2;
   width: 100%;

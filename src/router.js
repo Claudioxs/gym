@@ -6,12 +6,12 @@ import PerfilView from './views/PerfilUsuarioView.vue'
 import EntrenadorView from './views/EntrenadorView.vue';
 import AlumnoView from './views/AlumnoView.vue';
 import RutinaView from './views/RutinaView.vue';
-
+import RutinaUserView from './views/RutinaUserView.vue'
 
 
 const routes = [
     {
-        path: "/home",
+        path: "/",
         name: "home",
         component: HomeView
     },
@@ -39,6 +39,11 @@ const routes = [
         path: "/entrenador/alumno",
         name: "alumno",
         component: AlumnoView
+    },
+    {
+        path: "/agregarRutinaUser",
+        name: "agregarRutinaUser",
+        component: RutinaUserView
     },
     {
         path: "/entrenador/:id/alumno/agregarRutina",

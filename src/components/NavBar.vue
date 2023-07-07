@@ -4,7 +4,7 @@
   <div class="container">
     <!-- Logo o imagen a la izquierda -->
     <a class="navbar-brand" href="#">
-      <img src="ruta-de-la-imagen" alt="Logo">
+      <img src="@/assets/logo-gym.png" alt="Logo">
     </a>
 
     <!-- Enlaces de navegación centrados -->
@@ -24,7 +24,7 @@
 
     <!-- Inicio de sesión a la derecha -->
     <div class="text-end">
-      <a class="btn" id="btn-login" href="#">Iniciar sesión</a>
+      <router-link to=""> <a class="btn" id="btn-login" href="#">Iniciar sesión</a></router-link>
     </div>
   </div>
 </nav>
@@ -36,6 +36,10 @@
 </script>
 
 <style scoped>
+img{
+  width: 100px;
+  height: 90px;
+}
 #nav {
   background-color: #ffc107;
   height: 100px;
