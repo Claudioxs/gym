@@ -26,4 +26,16 @@ export function getUser(){
     .catch(error=> console.error(error))
 }
 
+export function saveRoutine({routineName, userId}){
+  return axiosInstance.post(`${BASE_URL}/user/rutinas/crear_rutina`,{routineName, userId})
+    .then(response => response.data)
+    .catch(error=> console.error(error))
+}
+
+export function getRoutines({userId}){
+  return axiosInstance.get(`${BASE_URL}/user/rutinas`,{userId})
+    .then(response => response.data)
+    .catch(error=> console.error(error))
+}
+
 export {axiosInstance};

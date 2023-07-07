@@ -31,6 +31,14 @@ const routes = [
         component: PerfilView 
     },
     {
+        path: "/perfil/crearRutina",
+        name: "crearRutina",
+        component: RutinaView,
+        props: (route) => ({
+            parametro: route.query.id,
+        })
+    },
+    {
         path: "/entrenador",
         name: "admin",
         component: EntrenadorView
