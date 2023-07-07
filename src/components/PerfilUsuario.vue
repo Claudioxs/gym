@@ -42,7 +42,7 @@
       </div>
 
       <div>
-        <router-link to="/agregarRutinaUser"><button class="btn btn-primary">Agregar rutina </button></router-link>
+        <router-link :to="{ path: '/agregarRutinaUser', query: { parametro: 'valor' } }"><button class="btn btn-primary">Agregar rutina </button></router-link>
       </div>
 
       <div class="col-12 mt-3">

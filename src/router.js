@@ -43,7 +43,10 @@ const routes = [
     {
         path: "/agregarRutinaUser",
         name: "agregarRutinaUser",
-        component: RutinaUserView
+        component: RutinaUserView,
+        props: (route) => ({
+            parametro: route.query.parametro,
+          })
     },
     {
         path: "/entrenador/:id/alumno/agregarRutina",

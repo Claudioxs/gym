@@ -2,7 +2,7 @@
   <div class="contenedor-form">
     <form  @submit.prevent="crearRutina">
       <label for="name">Nombre de la rutina:</label>
-      <input type="text" id="name" v-model="routine.name" required>
+      <input type="text" id="name" v-model="routineName" required>
        <br>
        <FormularioEjercicio/>
        <br>
@@ -14,6 +14,7 @@
   <div>
     <router-link to="/perfil"><button class="btn btn-success">Volver a mi perfil</button></router-link>
   </div>
+  <h1>{{ this.$route.query.parametro }}</h1>
 </template>
 
 <script>
@@ -25,14 +26,14 @@ export default {
   },
   data() {
     return {
-      routine: {
-        name: ""
-      }
+      userId:"64a4ca60e34b55be94171c18",
+      routineName:""
     };
   },
+ 
   methods: {
     crearRutina() {
-      axios.post('http://localhost:3000/user/rutinas/crear_rutina', this.routine)
+      axios.post('http://localhost:3000/user/rutinas/crear_rutina',{userId: this.userId, routineName: this.routineName})
         .then(response => {
           console.log(response.data);
           alert("La rutina se creó correctamente");

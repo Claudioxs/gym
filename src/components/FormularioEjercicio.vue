@@ -1,62 +1,47 @@
 <template>
-  
-  
-    <form @submit.prevent="guardarEjercicio">
+    <form @submit.prevent=" addEjercicio">
       <div class="mb-3">
         <label for="nombre" class="form-label">Nombre ejercicio:</label>
-        <input type="text" class="form-control" v-model="ejercicio.nombre" required>
+        <input type="text" class="form-control" v-model="ejercicio" required>
       </div>
       <div class="mb-3">
         <label for="series" class="form-label">Series:</label>
-        <input type="number" class="form-control" v-model="ejercicio.series" required>
+        <input type="number" class="form-control" v-model="series" required>
       </div>
       <div class="mb-3">
         <label for="repeticiones" class="form-label">Repeticiones:</label>
-        <input type="number" class="form-control" v-model="ejercicio.repeticiones" required>
+        <input type="number" class="form-control" v-model="repeticiones" required>
       </div>
       <div class=" text-center">
-        <button type="submit" class="btn btn-primary" v-if="editarElemento === null">Agregar</button>
-        <button type="submit" class="btn btn-primary" v-else>Guardar</button>
+        <button type="submit" class="btn btn-primary">Agregar</button>
       </div>
     </form>
-    <div class="m-5 mt-3 text-center">
-      <ul class="m-5">
-      <li v-for="(ejercicio, index) in ejercicios" :key="index">
-        <strong>{{ ejercicio.nombre }}</strong> - {{ ejercicio.series }} - {{ ejercicio.repeticiones }}
-        <button class="btn btn-primary" @click="editarElemento = elemento">Editar</button>
-      </li>
-    </ul>
-    </div>
-
+   
 </template>
 
 <script>
+import axios from 'axios';
 export default {
   data() {
     return {
-      ejercicio: {
-        nombre: '',
-        series: '',
-        repeticiones: ''
-      },
-      ejercicios: [],
-      editarElemento: null
+        rutinaId: "64a7abab2281eac17d278674",
+        ejercicio:"",  
+        series:"",
+        repeticiones: ""
+        
     };
   },
   methods: {
-    guardarEjercicio() {
-      if (this.editarElemento === null) {
-        this.ejercicios.push({ ...this.ejercicio });
-      } else {
-        
-        Object.assign(this.editarElemento, this.ejercicio);
-        this.editarElemento = null; 
-      }
-
-      this.ejercicio.nombre = '';
-      this.ejercicio.series= '';
-      this.ejercicio.repeticiones= '';
-    }
+    addEjercicio() {
+      axios.post('http://localhost:3000/user/rutinas/agregar_ejercicio', {rutinaId: this.rutinaId,ejercicio: this.ejercicio, series: this.series , repeticiones: this.repeticiones})
+        .then(response => {
+          console.log(response.data);
+          alert("Se agrego correctamente el ejercicio");
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    },
   }
 };
 </script>
