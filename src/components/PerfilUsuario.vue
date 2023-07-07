@@ -3,95 +3,18 @@
     <div class="row">
 
 
-      <div class="col-md-4">
-        <div class="card shadow-sm animate__animated animate__fadeIn">
-          <div class="user-image"><img src="@/assets/imagenperfil.jpeg" alt=""></div>
-          <div class="card-body">
-            <h5 class="card-title">{{ alumno.nombre }}</h5>
-            <p class="card-text">{{ alumno.correo }}</p>
-            <a href="#" class="btn btn-primary">Editar Perfil</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-8">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="card shadow-sm animate__animated animate__fadeIn">
-              <ObjetivosVue/>
-            </div>
-          </div>
-          <div class="col-md-12 mt-3">
-            <div class="card shadow-sm animate__animated animate__fadeIn">
-              <div class="card-body">
-                <h5 class="card-title">Rutinas Inscritas</h5>
-                <ul>
-                  <li v-for="(rutina, dia) in alumno.rutinas" :key="dia">
-                    <strong>{{ capitalizeFirstLetter(dia) }}:</strong>
-                    <ul>
-                      <li v-for="ejercicio in rutina" :key="ejercicio.nombre">
-                        {{ ejercicio.nombre }} - {{ ejercicio.series }} series, {{ ejercicio.rep }} repeticiones
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div>
-        <router-link :to="{ path: '/agregarRutinaUser', query: { parametro: 'valor' } }"><button class="btn btn-primary">Agregar rutina </button></router-link>
-      </div>
-
-      <div class="col-12 mt-3">
-        <div class="bg-gray" style="height: 400px; width: 100%;">
-          <h5 class="titulo">Estadisticas Semanales:</h5>
-          <div class="container"></div>
-        </div>
-      </div>
     </div>
   </div>
 </template>
 
 <script>
-import ObjetivosVue from './ObjetivosComponent.vue'
+
 export default {
   components:{
-    ObjetivosVue
+    
   },
-  data() {
-    return {
-      alumno: {
-        id: 1,
-        nombre: "Jim halpert",
-        //edad: 30,
-        //peso: 80,
-        correo: "c.saez15@ufromail.cl",
-        //altura: "2,0",
-        //enfermedades: [],
-        //descripcion: "Me gusta mucho el deporte y jugar a la pelota",
-        rutinas: {
-          lunes: [
-            { nombre: "Press de banca", series: 4, rep: 10 },
-            { nombre: "Sentadillas", series: 4, rep: 10 },
-          ],
-          martes: [
-            { nombre: "Press de banca", series: 4, rep: 10 },
-            { nombre: "Sentadillas", series: 4, rep: 10 },
-          ],
-        },
-      },
-    };
-  },
-
-  methods: {
-    capitalizeFirstLetter(str) {
-      return str.charAt(0).toUpperCase() + str.slice(1);
-    },
-  },
-
+ 
+ 
 };
 
 </script>

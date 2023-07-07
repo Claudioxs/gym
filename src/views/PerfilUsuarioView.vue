@@ -1,20 +1,20 @@
 <template>
-    <div class="container p-4">
-        <Perfil/>
-    </div>
-    <h1>{{ user }}</h1>
+    
+  <BuscadorComp></BuscadorComp>
+    
 </template>
 
 <script>
   
-  import Perfil from '@/components/PerfilUsuario.vue'
+
   import { getUser } from '@/services/auth.services';
+  import BuscadorComp from '@/components/BuscadorComp.vue';
   import { ref } from 'vue';
 
 
   export default {
       components:{
-          Perfil
+          BuscadorComp
       },
       mounted(){
        setTimeout(()=>{
