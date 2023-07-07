@@ -3,7 +3,7 @@
   <div class="container vh-100">
     <div class="row">
      
-      <h1>{{ user }}</h1>
+      {{ user }}
       
       <router-link :to="{ path: '/perfil/crearRutina', query: { id: b} }"><button>Crear rutina</button></router-link>
     </div>
@@ -12,6 +12,7 @@
     </div>
   </div>
 
+    <h1>{{ this.routines }}</h1>
     
     <!-- <section class="w-100  d-flex justify-content-center">
 			<div class="d-flex flex-column mb-3">
@@ -26,10 +27,9 @@
 				<div class="p-2">
 					<div class="infinite-scroll" data-mdb-infinite-direction="y" data-mdb-infinite-container="infinite-scroll-basic" style="width: 400px;">
           <ul class="container list-group infinite-scroll infinite-scroll-basic" id="basic-example" style="max-height: 400px; overflow-y: scroll">
-            <li v-for="user in filteredUsers" :key="user._id" class="list-group-item d-flex align-items-center">
+            <li v-for="user in this.routines" :key="user" class="list-group-item d-flex align-items-center">
               <div class="d-flex align-items-center ">
-                <div><span>{{ user.name }}</span></div>
-                <div class="d-flex justify-content-between"><router-link :to="{ path: '/test/usuario', query: { parametro: user.routines } }"><button class="button-32"><i class="bi bi-bar-chart"></i><span class="text-center">Ver</span></button></router-link></div>
+                <div><span>{{ user }}</span></div>
               </div>
             </li>
           </ul>
@@ -70,21 +70,19 @@
       setup(){
         const user = ref(null)
         const b = ref(null)
-        const c = ref(null)
+        const routines = ref(null)
         return{
           user,
           b,
-          c,
+          routines,
 
           async loadUser() {
 
             const response = await getUser();
             this.user = response;
-            this.b = this.user._id
+            this.b = this.user._id;
             
-            
-          
-            
+        
           },
          
         }
