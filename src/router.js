@@ -6,6 +6,8 @@ import PerfilView from './views/PerfilUsuarioView.vue'
 import EntrenadorView from './views/EntrenadorView.vue';
 import AlumnoView from './views/AlumnoView.vue';
 import RutinaView from './views/RutinaView.vue';
+import MejoraView from './views/MejoraView.vue';
+import AdminUserView from './views/AdminUserView.vue';
 
 
 
@@ -14,6 +16,20 @@ const routes = [
         path: "/home",
         name: "home",
         component: HomeView
+    },
+    {
+        path: "/test",
+        name: "test",
+        component: MejoraView
+    },
+    {
+        path: "/test/usuario",
+        name: "testUsuario",
+        component: AdminUserView,
+        props: (route) => ({
+            parametro: route.query.parametro,
+        }),
+
     },
     {
         path: "/login",

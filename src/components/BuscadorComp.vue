@@ -1,84 +1,60 @@
 <template>
-    <div class="container">
-        <div class="row pt-5">
-            <div class="col">
-                <div class="row">
-                    <span class="fs-5">Buscador</span>
-                </div>
-                <div class="row ">
-                    <div class="input-group ">
-                        <span class="input-group-text"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                            </svg>
-                        </span>
-                        <input type="text" aria-label="First name" class="form-control" placeholder="Busca al usuario por su nombre" v-model="searchTerm" @input="filterUsers">
-                    </div> 
-                </div> 
-            </div>
-        </div>
-        <div class="row">
-            <div class="container">
-                <div class="row m-3 border" v-for="usuario in filteredUsers" :key="usuario.id">
-                    <div class="col">
-                        <img :src="usuario.link" class="img-fluid">
-                    </div>
-                    <div class="col p-5">
-                        <div class="row pb-3">
-                            <span class="text-center">{{ usuario.age }}</span>
-                        </div>
-                        <div class="row">
-                            <button class="button-50" role="button"> Ver perfil
-                                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-arrow-right-square" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd" d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm4.5 5.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+   
+
+		<section class="w-100  d-flex justify-content-center">
+			<div class="d-flex flex-column mb-3">
+				<div class="p-2">
+					<div class="input-group ">
+            <span class="input-group-text"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>
+            </span>
+              <input type="text" aria-label="First name" class="form-control" placeholder="Busca al usuario por su nombre" v-model="searchTerm" >
+          </div> 
+				</div>
+				<div class="p-2">
+					<div class="infinite-scroll" data-mdb-infinite-direction="y" data-mdb-infinite-container="infinite-scroll-basic" style="width: 400px;">
+          <ul class="container list-group infinite-scroll infinite-scroll-basic" id="basic-example" style="max-height: 400px; overflow-y: scroll">
+            <li v-for="user in filteredUsers" :key="user._id" class="list-group-item d-flex align-items-center">
+              <div class="d-flex align-items-center ">
+                <div><span>{{ user.name }}</span></div>
+                <div class="d-flex justify-content-between"><router-link :to="{ path: '/test/usuario', query: { parametro: user.routines } }"><button class="button-32"><i class="bi bi-bar-chart"></i><span class="text-center">Ver</span></button></router-link></div>
+              </div>
+            </li>
+          </ul>
+          
+       </div>
+				</div>
+			</div>
+    </section> 		
+        
   </template>
   
-  <script>
+  <script > 
   export default {
-    data() {
-      return {
+
+		props:['users'],
+
+    data(){ 
+      return{
         searchTerm: '',
-        users: [
-          { id: 1, name: 'Juan', age: 20 ,link:"https://openpsychometrics.org/tests/characters/test-resources/pics/TO/9.jpg"},
-          { id: 2, name: 'María', age: 25 },
-          { id: 3, name: 'Pedro', age: 30 },
-          { id: 3, name: 'PePe', age: 30 },
-          { id: 3, name: 'PePe', age: 30 },
-          { id: 3, name: 'PePe', age: 30 },
-          { id: 3, name: 'PePe', age: 30 },
-          { id: 3, name: 'PePe', age: 30 },
-          { id: 3, name: 'PePe', age: 30 }
-        ]
-      };
+      }
     },
+    
     computed: {
       filteredUsers() {
-        return this.users.filter(user => {
-          // Filtrar por nombre del usuario
+        if(this.users != null){
+          return this.users.filter(user => {
           return user.name.toLowerCase().includes(this.searchTerm.toLowerCase());
         });
-      }
-    },
-    methods: {
-      filterUsers() {
-        // No es necesario hacer nada aquí, ya que la lógica de filtrado está en la propiedad computada
-      }
+        }
+        return []
+      },
     }
   };
   </script>
   
 <style scoped>
-img{
-    width: 200px;
-    height: 200px;
-}
+
 
 
 /* CSS */
